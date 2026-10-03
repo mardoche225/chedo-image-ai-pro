@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-void: #07070f;
+  --color-panel: #0e0e1c;
+  --color-card: #13132400;
+  --color-neon: #8b5cf6;
+  --color-cyan: #22d3ee;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  background: #07070f;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background:
+    radial-gradient(1000px 600px at 85% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+    radial-gradient(800px 500px at -10% 25%, rgba(34, 211, 238, 0.1), transparent 55%),
+    #07070f;
+  color: #e7e7f3;
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Carte vitrée futuriste */
+.glass {
+  background: linear-gradient(160deg, rgba(23, 23, 42, 0.85), rgba(13, 13, 26, 0.9));
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 20px 60px -30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.glow-btn {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9 55%, #0ea5e9);
+  box-shadow: 0 8px 32px -10px rgba(139, 92, 246, 0.65);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.glow-btn:hover:not(:disabled) {
+  filter: brightness(1.12);
+  box-shadow: 0 10px 40px -8px rgba(139, 92, 246, 0.8);
+}
+.glow-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.glow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #c4b5fd, #8b5cf6 40%, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animation de chargement */
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  70% { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+.pulse-ring { animation: pulse-ring 1.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(139,92,246,0.06) 25%, rgba(139,92,246,0.18) 50%, rgba(139,92,246,0.06) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.35s ease both; }
+
+/* Scrollbar discrète */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+select, textarea, input {
+  color-scheme: dark;
+}
